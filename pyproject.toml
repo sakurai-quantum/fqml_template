@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "fqml-template"
+version = "0.1.0"
+description = ""
+authors = ["adrabi-at-069834912168"]
+readme = "README.md"
+packages = [
+    {include = "client", from = "src"}, 
+    {include = "server", from = "src"},
+    {include = "model", from = "src"}, 
+    {include = "ui", from = "src"},
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flwr = "^1.10.0"
+torch = "^2.4.0"
+torchvision = "^0.19.0"
+streamlit = "^1.37.0"
+jupyter = "^1.0.0"
+ipython = "^8.26.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+server = "src.server:start"
+client = "src.client:start"
